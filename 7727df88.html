@@ -62,6 +62,7 @@
         return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
     }
     var device_id = getParameterByName('device_id');
+    console.log("device_id = "+device_id);
     if ( device_id !== null ){
         ez_connect(device_id);
     }
