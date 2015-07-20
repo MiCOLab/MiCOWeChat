@@ -116,7 +116,7 @@
             message.destinationName = topic;
             client.send(message);
         }
-        console.log("onConnect");
+        console.log("onConnect:"+device_id);
         client.subscribe(device_id+'/out/#', {qos: 0});
     }
     function onConnectionLost(responseObject) {
