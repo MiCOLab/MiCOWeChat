@@ -230,9 +230,11 @@
             if("./image/03-turn-on.png" == swtimg){
                 commond = '{"device_switch":false}';
                 $("#switchbtn").attr("src", "./image/03-turn-off.png");
+                $("#switchspan").text("关");
             }else{
                 commond = '{"device_switch":true}';
                 $("#switchbtn").attr("src", "./image/03-turn-on.png");
+                $("#switchspan").text("开");
             }
             client.publish(topic, commond);
         });
