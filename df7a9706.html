@@ -1,28 +1,90 @@
-<!DOCTYPE html>
-<html ng-app="ionicApp">
+<!DOCTYPE HTML>
+<html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
     <title>温湿度02</title>
     <!-- <link href="//code.ionicframework.com/1.0.0-beta.13/css/ionic.css" rel="stylesheet"> -->
     <style>
-        .content{
-            background-color: #30801F;
+        *{margin:0px;padding:0px;}
+        body{
+            background-color: #EBEBEB;
             background-size: cover;
-            height: 200px;
-            width: 200px;
-            border-radius: 20px;
-            opacity: 0.4;
+            font-family: 微软雅黑;
+            font-size: 13px;
+        }
+        .content{
+            margin:1px;
+            padding:1px;
+        }
+        .title{
+            margin: 10px 12px 5px 12px;
+            background-color: #FFFFFF; 
+            text-align: center;
+            padding: 7px 0;
+            box-shadow: 3px 3px 3px #e1e1e1;
+        }
+        .title span{
+            color: #229B32;
+            font-size: 18px;
+            font-weight: bolder;
+            position: relative;
+        }
+        .temphumishow{
+            margin: 5px 12px;
+            height: 94px;
+            background-color: #FFFFFF;
+            text-align: center;
+            box-shadow: 3px 3px 3px #e1e1e1;
+        }
+        .temphumishow table tr td img{
+            height: 50px;
+        }
+        .tempcls{
+            font-size: 30px;
+            color: #e13e4e; 
+        }
+        .humicls{
+            font-size: 30px;
+            color: #80a72d; 
+        }
+        .switrgbhow{
+            margin: 5px 12px;
+            height: 114px;
+            background-color: #FFFFFF;
+            text-align: center;
+            box-shadow: 3px 3px 3px #e1e1e1;
+        }
+        .switrgbhow table tr td img{
+            height: 70px;
         }
     </style>
 </head>
 <body>
     <div class="content">
-        <div>
-          <h1 class="title" id="device_id"></h1>
-      </div>
-      </div>
-  <div id="debug"></div>
+        <div class="title">
+          <span>温湿度实时检测</span>
+        </div>        
+        <div class="temphumishow">
+            <table width="100%" height="94px">
+                <tr align="center">
+                    <td valign="middle" align="right"><img src="./image/01-temperature.png" alt=""></td>
+                    <td valign="middle" align="left"><span>温度</span><br/><span class="tempcls">28℃</span></td>
+                    <td valign="middle" align="right"><img src="./image/01-humidity.png" alt=""></td>
+                    <td valign="middle" align="left"><span>湿度</span><br/><span class="humicls">42%</span></td>
+                </tr>
+            </table>
+        </div>        
+        <div class="switrgbhow">
+            <table width="100%">
+                <tr align="center" height="114px">
+                    <td valign="middle"><img src="./image/03-turn-on.png" alt=""><br/><span>开关</span></td>
+                    <td valign="middle"><img src="./image/02-red.png" alt=""><br/><span>温度阀值</span></td>
+                </tr>                
+            </table>
+        </div>
+    </div>
+<div id="debug"></div>
 
 <!--   <div class="bar-footer" style="bottom:0;position:absolute;width:100%">
      <div class="item item-input-inset">
@@ -51,9 +113,9 @@
     //  首页登录样式控制
     var screenH = document.body.clientHeight;
     var screenW = document.body.clientWidth;
-    alert(screenH);
-    alert(screenW);
-    $('.content').css('height', screenH).css('width', screenW);
+    // alert(screenH);
+    // alert(screenW);
+    // $('.content').css('height', screenH).css('width', screenW);
 
     // // 从url中获取某个参数的值
     // function getParameterByName(name) {
