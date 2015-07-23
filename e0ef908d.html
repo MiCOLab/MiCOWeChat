@@ -195,7 +195,6 @@
         // 消息到达
         var msgindex = 1;
         var msgjson;
-        var tempval;
         function onMessageArrived(message) {
             // console.log(message.topic + ': ' +  message.payloadString);
             if(msgindex > 12 ){
@@ -205,7 +204,7 @@
             msgindex++;
             console.log('消息到达: ' +  message.payloadString);
             msgjson = $.parseJSON(message.payloadString);
-            tempval = msgjson.dht11_temperature;
+            var tempval = msgjson.dht11_temperature;
             console.log('温度 ' +  msgjson.dht11_temperature);
             console.log('温度2 ' +  tempval);
             if("undefined" != typeof(tempval)){
