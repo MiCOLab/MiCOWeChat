@@ -204,17 +204,17 @@
             msgindex++;
             console.log('消息到达: ' +  message.payloadString);
             msgjson = $.parseJSON(message.payloadString);
-            var tempval = msgjson.dht11_temperature;
+            // var tempval = msgjson.dht11_temperature;
             console.log('温度 ' +  msgjson.dht11_temperature);
-            console.log('温度2 ' +  tempval);
+            // console.log('温度2 ' +  tempval);
             if("undefined" != typeof(tempval)){
-                $("#tempid").text(tempval+"℃");
+                $("#tempid").text(msgjson.dht11_temperature+"℃");
                 $("#humiid").text(msgjson.dht11_humidity+'%');
-                if(tempval > 29){
+                if(msgjson.dht11_temperature > 29){
                     led_red();
-                }else if(tempval < 30 && (tempval > 19){
+                }else if(msgjson.dht11_temperature < 30 && (msgjson.dht11_temperature > 19){
                     led_green();
-                }else if(tempval < 20){
+                }else if(msgjson.dht11_temperature < 20){
                     led_blue();
                 }
             }
