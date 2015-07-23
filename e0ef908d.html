@@ -206,8 +206,10 @@
             msgjson = $.parseJSON(message.payloadString);
             console.log('温度: ' +  msgjson.dht11_temperature);
             console.log('湿度: ' +  msgjson.dht11_humidity);
-            $("#tempid").val(msgjson.dht11_temperature+"℃");
-            $("#humiid").val(msgjson.dht11_humidity+'%');
+            document.getElementById('tempid').innerHTML = msgjson.dht11_temperature+"℃";
+            document.getElementById('humiid').innerHTML = msgjson.dht11_humidity+'%';
+            // $("#tempid").val(msgjson.dht11_temperature+"℃");
+            // $("#humiid").val(msgjson.dht11_humidity+'%');
         }
 
         // // 串口数据发送部分
