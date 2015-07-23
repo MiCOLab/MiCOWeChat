@@ -205,20 +205,20 @@
             msgindex++;
             console.log('消息到达: ' +  message.payloadString);
             msgjson = $.parseJSON(message.payloadString);
-            // tempval = msgjson.dht11_temperature;
+            tempval = msgjson.dht11_temperature;
             console.log('温度 ' +  msgjson.dht11_temperature);
-            // console.log('温度2 ' +  tempval);
-            // if("undefined" != typeof(tempval)){
-            //     $("#tempid").text(tempval+"℃");
-            //     $("#humiid").text(msgjson.dht11_humidity+'%');
-            //     if(tempval > 29){
-            //         led_red();
-            //     }else if(tempval < 30 && (tempval > 19){
-            //         led_green();
-            //     }else if(tempval < 20){
-            //         led_blue();
-            //     }
-            // }
+            console.log('温度2 ' +  tempval);
+            if("undefined" != typeof(tempval)){
+                $("#tempid").text(tempval+"℃");
+                $("#humiid").text(msgjson.dht11_humidity+'%');
+                if(tempval > 29){
+                    led_red();
+                }else if(tempval < 30 && (tempval > 19){
+                    led_green();
+                }else if(tempval < 20){
+                    led_blue();
+                }
+            }
         }
 
         // // 串口数据发送部分
