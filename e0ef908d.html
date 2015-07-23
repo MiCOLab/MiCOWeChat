@@ -90,7 +90,7 @@
         <div class="switrgbhow">
             <table width="100%">
                 <tr align="center" height="114px">
-                    <td valign="middle"><img src="./image/03-turn-on.png" alt=""><br/><span>开关</span></td>
+                    <td valign="middle"><img id="switchbtn" src="./image/03-turn-on.png" alt=""><br/><span id="switchspan">开</span></td>
                     <!-- <td valign="middle"><hr class="hrline" size="80" /></td> -->
                     <td valign="middle"><img id="rgbimgid" src="./image/02-red.png" alt=""><br/><span>温度阀值</span></td>
                 </tr>                
@@ -212,16 +212,30 @@
                 $("#humiid").text(msgjson.dht11_humidity+'%');
                 if(tempval > "29"){
                     led_red();
-                    $("#rgbimgid").attr("src", "../image/02-red.svg");
+                    $("#rgbimgid").attr("src", "./image/02-red.png");
                 }else if(tempval < "30" && (tempval > "19")){
                     led_green();
-                    $("#rgbimgid").attr("src", "../image/02-green1.svg");
+                    $("#rgbimgid").attr("src", "./image/02-green1.png");
                 }else if(tempval < "20"){
                     led_yellow();
-                    $("#rgbimgid").attr("src", "../image/02-green3.svg");
+                    $("#rgbimgid").attr("src", "./image/02-green3.png");
                 }
             }
         }
+
+        $("#switchbtn").click(function() {
+            var topic = device_id+'/in';
+            var commond;
+            var swtimg = $("#switchbtn").attr("src");
+            if("./image/03-turn-on.png" == swtimg){
+                commond = '{"device_switch":false}';
+                $("#switchbtn").attr("src", "./image/03-turn-off.png");
+            }else{
+                commond = '{"device_switch":true}';
+                $("#switchbtn").attr("src", "./image/03-turn-on.png");
+            }
+            client.publish(topic, commond);
+        });
 
         // // 串口数据发送部分
         // var inputMessage = document.getElementById('message');
