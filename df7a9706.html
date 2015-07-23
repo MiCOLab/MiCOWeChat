@@ -194,6 +194,7 @@
         }
         // 消息到达
         var msgindex = 1;
+        var msgjson;
         function onMessageArrived(message) {
             // console.log(message.topic + ': ' +  message.payloadString);
             if(msgindex > 12 ){
@@ -202,10 +203,11 @@
             }
             msgindex++;
             console.log('消息到达: ' +  message.payloadString);
-            console.log('温度: ' +  message.payloadString.dht11_temperature);
-            console.log('湿度: ' +  message.payloadString.dht11_humidity);
-            $("#tempid").val(message.payloadString.dht11_temperature+"℃");
-            $("#humiid").val(message.payloadString.dht11_humidity+'%');
+            msgjson = $.parseJSON(message.payloadString);
+            console.log('温度: ' +  msgjson.dht11_temperature);
+            console.log('湿度: ' +  msgjson.dht11_humidity);
+            $("#tempid").val(msgjson.dht11_temperature+"℃");
+            $("#humiid").val(msgjson.dht11_humidity+'%');
         }
 
         // // 串口数据发送部分
