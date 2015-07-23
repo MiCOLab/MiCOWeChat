@@ -210,13 +210,13 @@
             if("undefined" != typeof(tempval)){
                 $("#tempid").text(msgjson.dht11_temperature+"℃");
                 $("#humiid").text(msgjson.dht11_humidity+'%');
-                if(msgjson.dht11_temperature > 29){
-                    led_red();
-                }else if(msgjson.dht11_temperature < 30 && (msgjson.dht11_temperature > 19){
-                    led_green();
-                }else if(msgjson.dht11_temperature < 20){
-                    led_blue();
-                }
+                // if(msgjson.dht11_temperature > 29){
+                //     led_red();
+                // }else if(msgjson.dht11_temperature < 30 && (msgjson.dht11_temperature > 19){
+                //     led_green();
+                // }else if(msgjson.dht11_temperature < 20){
+                //     led_blue();
+                // }
             }
         }
 
