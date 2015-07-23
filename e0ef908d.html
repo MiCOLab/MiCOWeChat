@@ -204,9 +204,9 @@
             msgindex++;
             console.log('消息到达: ' +  message.payloadString);
             msgjson = $.parseJSON(message.payloadString);
-            console.log('温度 ' +  msgjson.dht11_temperature);
+            // console.log('温度 ' +  msgjson.dht11_temperature);
             var tempval = msgjson.dht11_temperature;
-            console.log('温度2 ' +  tempval);
+            // console.log('温度2 ' +  tempval);
             if("undefined" != typeof(tempval)){
                 $("#tempid").text(tempval+"℃");
                 $("#humiid").text(msgjson.dht11_humidity+'%');
