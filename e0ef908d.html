@@ -81,9 +81,9 @@
             <table width="100%" height="94px">
                 <tr align="center">
                     <td valign="middle" align="right"><img src="./image/01-temperature.png" alt=""></td>
-                    <td valign="middle" align="left"><span>温度</span><br/><span class="tempcls">28℃</span></td>
+                    <td valign="middle" align="left"><span>温度</span><br/><span class="tempcls" id="tempid">28℃</span></td>
                     <td valign="middle" align="right"><img src="./image/01-humidity.png" alt=""></td>
-                    <td valign="middle" align="left"><span>湿度</span><br/><span class="humicls">42%</span></td>
+                    <td valign="middle" align="left"><span>湿度</span><br/><span class="humicls" id="humiid">42%</span></td>
                 </tr>
             </table>
         </div>        
@@ -193,9 +193,17 @@
                 console.log("onConnectionLost:"+responseObject.errorMessage);
         }
         // 消息到达
+        var msgindex = 1;
         function onMessageArrived(message) {
             // console.log(message.topic + ': ' +  message.payloadString);
+            if(msgindex < 13 ){
+                msgindex =1;
+                document.getElementById('debug').innerHTML = "";
+            }
+            msgindex++;
             console.log('消息到达: ' +  message.payloadString);
+            $("#tempid").val(message.payloadString.dht11_temperature+"℃");
+            $("#humiid").val(message.payloadString.dht11_humidity+'%');
         }
 
         // // 串口数据发送部分
