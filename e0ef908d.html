@@ -152,7 +152,7 @@
         // 正常情况下access_token有效期为7200秒，重复获取将导致上次获取的access_token失效
         var access_token = getParameterByName('access_token');
 
-        document.getElementById('device_id').innerHTML = device_id;
+        document.getElementById('device_id').innerHTML = "DeviceID = "+device_id;
 
         // websocket连接
         // wsbroker:host
@@ -178,7 +178,7 @@
             // topic：通道
             // commond：指令
             client.publish = function(topic, commond) {
-                console.log("现在执行-->:"+commond);
+                console.log("现在执行:"+commond);
                 message = new Paho.MQTT.Message(commond);
                 message.destinationName = topic;
                 client.send(message);
@@ -201,7 +201,6 @@
                 msgindex =1;
                 document.getElementById('debug').innerHTML = "";
             }
-            msgindex++;
             console.log('消息到达: ' +  message.payloadString);
             msgjson = $.parseJSON(message.payloadString);
             // console.log('温度 ' +  msgjson.dht11_temperature);
@@ -313,6 +312,7 @@
             div_log.scrollTop = div_log.scrollHeight;
             i += 1;
         };
+        msgindex++;
     } (console.log.bind(console), document.getElementById("debug")));
     console.error = console.debug = console.info =  console.log;
 
