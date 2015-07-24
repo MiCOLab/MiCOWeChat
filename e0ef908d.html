@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
-    <title>温湿度02</title>
+    <title>设备联动</title>
     <style>
         *{margin:0px;padding:0px;}
         body{
@@ -60,7 +60,7 @@
         }
         .humihis{
             margin: 5px 12px;
-            height: 195px;
+            height: 215px;
             background-color: #FFFFFF;
             text-align: center;
             box-shadow: 3px 3px 3px #e1e1e1;
@@ -178,12 +178,12 @@
             // topic：通道
             // commond：指令
             client.publish = function(topic, commond) {
-                console.log("现在执行:"+commond);
+                // console.log("现在执行-->:"+commond);
                 message = new Paho.MQTT.Message(commond);
                 message.destinationName = topic;
                 client.send(message);
             }
-            console.log("device_id:"+device_id);
+            // console.log("device_id:"+device_id);
             console.log("onConnect");
             client.subscribe(subtopic, {qos: 0});
         }
@@ -201,6 +201,7 @@
                 msgindex =1;
                 document.getElementById('debug').innerHTML = "";
             }
+            msgindex++;
             console.log('消息到达: ' +  message.payloadString);
             msgjson = $.parseJSON(message.payloadString);
             // console.log('温度 ' +  msgjson.dht11_temperature);
@@ -312,7 +313,6 @@
             div_log.scrollTop = div_log.scrollHeight;
             i += 1;
         };
-        msgindex++;
     } (console.log.bind(console), document.getElementById("debug")));
     console.error = console.debug = console.info =  console.log;
 
