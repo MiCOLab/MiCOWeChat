@@ -91,7 +91,7 @@
                 </tr>                
             </table>
         </div>
-<!--         <div class="humihis">
+        <!-- <div class="humihis">
             <div id="device_id"></div>
             <div id="debug"></div>
         </div> -->
@@ -151,13 +151,13 @@
                 client.send(message);
             }
             // console.log("device_id:"+device_id);
-            // console.log("onConnect");
+            console.log("onConnect");
             client.subscribe(subtopic, {qos: 0});
         }
         // 连接丢失
         function onConnectionLost(responseObject) {
             if (responseObject.errorCode !== 0)
-                // console.log("onConnectionLost:"+responseObject.errorMessage);
+                console.log("onConnectionLost:"+responseObject.errorMessage);
         }
         // 消息到达
         // var msgindex = 1;
