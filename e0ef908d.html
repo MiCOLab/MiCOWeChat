@@ -169,7 +169,7 @@
                 document.getElementById('debug').innerHTML = "";
             }
             msgindex++;
-            // console.log('消息到达: ' +  message.payloadString);
+            console.log('设备上报:' +  message.payloadString);
             msgjson = $.parseJSON(message.payloadString);
             // console.log('温度 ' +  msgjson.dht11_temperature);
             var tempval = msgjson.dht11_temperature;
